@@ -12,9 +12,10 @@ let rise=0;
 let ground=true;
 let rising = false;
 let falling=false;
-let riseSpeed=6;
-let fallSpeed=5;
-let obstacleSpeed=2;
+let spriteSpeed=4;
+let riseSpeed=spriteSpeed;
+let fallSpeed=spriteSpeed;
+let obstacleSpeed=1;
 let value=0;
 let globalCeiling=300;
 let intro= true;
@@ -22,29 +23,28 @@ let replay=false;
 let gameState=[true,false,false];
 function draw(){
     if (gameState[0]===true){
-introduction();
+        introduction();
     }
     if(gameState[1]===true){
-    var score = value;
-    background(225);
-    noStroke();
-    fill(205);
-    rect(0,450,800,60);
-    sprite(spriteY,25,25);
-    fill(0);
-    textSize(40);
-    text(Math.floor(score),750,50);
-    gravity();
-   obstacles(obstacleX,obstacleY[0]);
+        var score = value;
+        background(225);
+        noStroke();
+        fill(205);
+        rect(0,450,800,60);
+        sprite(spriteY,25,25);
+        fill(0);
+        textSize(40);
+        text(Math.floor(score),750,50);
+        gravity();
+        obstacles(obstacleX,obstacleY[0]);
 
-   obstacles(obstacleX2,obstacleY[2]);
-    losing();
-    spriteY=spriteY+rise;
-    obstacleX=obstacleX-obstacleSpeed;
-   
-    obstacleX2=obstacleX2-obstacleSpeed;
-    value+=0.01;
-    comeback();
+        obstacles(obstacleX2,obstacleY[2]);
+        losing();
+        spriteY=spriteY+rise;
+        obstacleX=obstacleX-obstacleSpeed;
+        obstacleX2=obstacleX2-obstacleSpeed;
+        value+=0.01;
+        comeback();
     }
     if(gameState[2]===true){
        lost();
